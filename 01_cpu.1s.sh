@@ -9,5 +9,6 @@ function padded {
 
 cpu_idle=$(mpstat 1 1 -o JSON | jq '.sysstat.hosts[0].statistics[0]."cpu-load"[0].idle')
 cpu_usage=$(echo "100 - $cpu_idle" | bc)
-padded_cpu_usage=$(padded $cpu_usage 5)
+rounded_cpu_usage=$(printf "%.0f" $cpu_usage)
+padded_cpu_usage=$(padded $rounded_cpu_usage 3)
 echo "cpu $padded_cpu_usage% | size=9px font=monospace"
