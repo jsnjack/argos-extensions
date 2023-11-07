@@ -40,4 +40,4 @@ padded_rx_rate_human=$(padded "$rx_rate_human" 6)
 tx_rate=$(echo "$cur_tx_bytes - $prev_tx_bytes" | bc)
 tx_rate_human=$(convert_size "$tx_rate")
 padded_tx_rate_human=$(padded "$tx_rate_human" 6)
-echo "net $padded_rx_rate_human $padded_tx_rate_human | size=9px font=monospace"
+echo "⏷ $padded_rx_rate_human ⏶ $padded_tx_rate_human | size=9px font=monospace"
