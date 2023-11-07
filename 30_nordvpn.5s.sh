@@ -11,7 +11,7 @@ if [ "$status_code" = "200" ]; then
         echo "---"
         echo "Connected to $country_code"
     else
-        echo "|"
+        echo "---"
     fi
 else
     echo "..."
