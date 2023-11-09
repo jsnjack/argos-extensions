@@ -23,7 +23,7 @@ done
 if [ "$total_vulnerabilities" -gt 0 ]; then
     echo "$total_vulnerabilities :robot:"
 else
-    echo ":robot:"
+    echo "---"
 fi
 
 echo "---"
