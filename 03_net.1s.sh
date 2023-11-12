@@ -18,8 +18,14 @@ function padded {
     printf "%*s %s" "$len" "$num" "$unit"
 }
 
-# # Detect which network interface is active
-network_interface=$(ip route get 8.8.8.8 | awk '{print $5}')
+# Detect which network interface is active
+route_details=$(ip route get 8.8.8.8)
+network_interface=$(echo $route_details | awk '{print $5}')
+
+# Check if the report directory exists
+if [ ! -d "/sys/class/net/$network_interface/" ]; then
+  network_interface=$(echo $route_details | awk '{print $3}')
+fi
 
 net_stat_dir="/tmp/argos/sys_monitor/$network_interface"
 mkdir -p "$net_stat_dir"
