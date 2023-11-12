@@ -21,7 +21,7 @@ function padded {
 # # Detect which network interface is active
 network_interface=$(ip route get 8.8.8.8 | awk '{print $5}')
 
-net_stat_dir="/tmp//argos/sys_monitor/$network_interface"
+net_stat_dir="/tmp/argos/sys_monitor/$network_interface"
 mkdir -p "$net_stat_dir"
 
 # Get RX TX bytes
