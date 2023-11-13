@@ -42,7 +42,9 @@ def percipation_to_text(percipation):
     if not rain_starts_at:
         return ""
     else:
-        return f"{rain_rate * "🌢"} at {rain_starts_at.strftime('%H:%M')} until {rain_ends_at.strftime('%H:%M')}"
+        if rain_points[0] > 0:
+            return f"{rain_rate * "🌢"} until {rain_ends_at.strftime('%H:%M')}"
+        return f"{rain_rate * "🌢"} from {rain_starts_at.strftime('%H:%M')} until {rain_ends_at.strftime('%H:%M')}"
 
 
 def percipation_summary(percipation):
