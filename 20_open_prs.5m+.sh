@@ -16,7 +16,7 @@ total_pull_requests=0
 
 # Loop through the repositories and add up the number of pending pull request reviews for the specified user
 for repository in "${repositories[@]}"; do
-    pull_requests=$(curl -s -H "Authorization: token $GITHUB_ARGOS_TOKEN" "https://api.github.com/repos/$repository/pulls?state=open" | jq --arg username "$username" '.[] | select(.requested_reviewers[].login == $username) | .number' | wc -l)
+    pull_requests=$(curl -s -H "Authorization: token $GITHUB_ARGOS_TOKEN" "https://api.github.com/repos/$repository/pulls?state=open" | jq --arg username "$username" '.[] | select(.draft == false) | select(.requested_reviewers[].login == $username) | .number' | wc -l)
     total_pull_requests=$((total_pull_requests + pull_requests))
 done
 
