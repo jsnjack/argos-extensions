@@ -27,4 +27,9 @@ else
 fi
 
 echo "---"
-echo "View Pull Requests | href=https://github.com/pulls/review-requested"
+echo "Review requested | href=https://github.com/pulls/review-requested"
+echo "Reviewed by me | href=https://github.com/pulls?q=is%3Aopen+is%3Apr+reviewed-by%3Ajsnjack+archived%3Afalse+"
+echo "---"
+echo "My | href=https://github.com/pulls?q=is%3Aopen+is%3Apr+author%3Ajsnjack+archived%3Afalse+user%3Asurfly"
+echo "---"
+echo "New issues | href=https://github.com/surfly/it/issues?q=is%3Aopen+is%3Aissue+label%3Anew-issue"
